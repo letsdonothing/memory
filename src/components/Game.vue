@@ -1,10 +1,10 @@
 <template>
   <div class="game screen">
   	<div class="head">
-	  	<a class="restart" @click="restart">Начать заново</a>
-	  	<span class="score">Очки: {{ score }}</span>
+	  	<a class="restart" @click="restart" data-tid="Menu-newGame">Начать заново</a>
+	  	<span class="score" data-tid="Menu-scores">Очки: {{ score }}</span>
   	</div>
-  	<div class="playground">
+  	<div class="playground" data-tid="Deck">
     	<Card v-for="card in cards" :stats="card" @cardIsOpen="move(card)"/>
     </div>
   </div>

@@ -5,7 +5,9 @@
 	    <p>Поздравляем!</p>
 	    <p>Ваш итоговый счёт: {{ $route.params.score }}</p>
 	  </div>
-	  <button class="btn" @click="startGame">Ещё раз</button>
+	  <button class="btn" @click="startGame" data-tid="EndGame-retryGame">
+	  	Ещё раз
+	  </button>
   </div>
 </template>
 

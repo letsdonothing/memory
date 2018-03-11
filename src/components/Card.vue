@@ -1,5 +1,6 @@
 <template>
-  <div v-if="isOpen" class="card" :style="{ color: this.stats.color }">
+  <div v-if="isOpen" class="card" 
+  		:style="{ color: this.stats.color, fontSize: fontSize }" data-tid="Card">
   	<div class="left-top">
   		{{ this.stats.rank }}
   	</div>
@@ -16,7 +17,7 @@
   		{{ this.stats.rank }}
   	</div>
   </div>
-  <div v-else class="card" @click="open">
+  <div v-else class="closed card" @click="open" data-tid="Card-flipped">
   	<img src="@/assets/back.png" alt="Suit">
   </div>
 </template>
@@ -33,6 +34,9 @@ export default {
   computed: {
   	src: function () {
   		return require('@/assets/' + this.stats.suit + '.png')
+  	},
+  	fontSize: function () {
+  		return ((this.stats.rank === '10') ? '14px' : '16px')
   	}
   },
   mounted () {
@@ -49,7 +53,6 @@ export default {
   },
   methods: {
   	start: function () {
-  		this.isOpen = true
   		var self = this
   		window.setTimeout(function () {
   			self.isOpen = false
@@ -65,7 +68,6 @@ export default {
 
 <style scoped>
 div {
-	font-size: 16px;
 	display: inline;
 	text-align: center;
 	position: relative;
@@ -80,6 +82,12 @@ div {
 	float: left;
 	color: #221e20;
 	font-size: 12px;
+}
+.closed {
+	width: 90px;
+	height: 140px;
+	border: 5px solid #fff;
+	border-radius: 10px;
 }
 .img {
 	height: 15px;

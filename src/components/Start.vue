@@ -4,7 +4,7 @@
       <img src="../assets/Start.png" alt="Start page">
       <p>MEMORY GAME</p>
     </div>
-    <button class="btn" @click="startGame">Начать игру</button>
+    <button class="btn" @click="startGame" data-tid="NewGame-startGame">Начать игру</button>
   </div>
 </template>
 
